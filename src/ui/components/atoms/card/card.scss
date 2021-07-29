@@ -1,0 +1,22 @@
+@import '../../../styling/helpers.scss';
+
+.card {
+    border-radius: 5px;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background-color: $white;
+    cursor: pointer;
+    box-shadow: 0.1rem 0.1rem 1rem -0.7rem $gains_blue_1;
+
+    font: $font_body;
+
+    img {
+        width: 100%;
+    }
+
+    h2 {
+        color: $gains_blue_1;
+        font: $font_heading_2;
+    }
+}

@@ -1,0 +1,24 @@
+@import '../../../styling/helpers.scss';
+
+.button {
+    color: $gains_blue_1;
+    border-radius: 100rem;
+    width: 100%;
+
+    border: solid $gains_blue_1 2px;
+    text-align: center;
+    cursor: pointer;
+
+    font: $font_body;
+    transition: background-color 0.1s ease-in, color 0.1s ease-in;
+
+    > * {
+        padding: 1rem;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $gains_blue_1;
+        color: white;
+    }
+}

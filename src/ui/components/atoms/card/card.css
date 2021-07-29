@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  outline: none; }
+
+html {
+  font-size: 10px; }
+
+.card {
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0.1rem 0.1rem 1rem -0.7rem #2e90ff;
+  font: 400 1.6rem/1.4 sans-serif; }
+  .card img {
+    width: 100%; }
+  .card h2 {
+    color: #2e90ff;
+    font: 700 2.4rem/1.4 sans-serif; }

@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  outline: none; }
+
+html {
+  font-size: 10px; }
+
+.set-counter {
+  background: #fafafa; }
+  .set-counter h1 {
+    font: 700 3.2rem/1.4 sans-serif;
+    text-align: center; }
+  .set-counter.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem; }
+  .set-counter .add-set {
+    width: 100%;
+    font: 400 1.6rem/1.4 sans-serif;
+    background-color: #2e90ff;
+    color: #fff;
+    text-align: center; }

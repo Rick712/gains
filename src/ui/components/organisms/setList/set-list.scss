@@ -1,0 +1,45 @@
+@import '../../../styling/helpers.scss';
+
+.set-table {
+    width: 100%;
+    display: grid;
+    margin-bottom: 2rem;
+
+    .row {
+        display: grid;
+        grid-template-columns: 15% 25% 25% 35%;
+    }
+
+    .head {
+        font: $font_body;
+        font-weight: 700;
+        width: 100%;
+        background: $gains_blue_1;
+        color: $white;
+    }
+    .body {
+        .cell {
+            font: $font_body_small;
+        }
+        .row {
+            &:nth-of-type(2n + 2) {
+                background-color: $grey_5;
+            }
+        }
+    }
+
+    .cell {
+        padding: 1rem 0.75rem;
+
+        &.change {
+            span {
+                &:nth-of-type(1) {
+                    color: red;
+                }
+                &:nth-of-type(2) {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+}

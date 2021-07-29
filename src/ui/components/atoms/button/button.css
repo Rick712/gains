@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  outline: none; }
+
+html {
+  font-size: 10px; }
+
+.button {
+  color: #2e90ff;
+  border-radius: 100rem;
+  width: 100%;
+  border: solid #2e90ff 2px;
+  text-align: center;
+  cursor: pointer;
+  font: 400 1.6rem/1.4 sans-serif;
+  transition: background-color 0.1s ease-in, color 0.1s ease-in; }
+  .button > * {
+    padding: 1rem; }
+  .button:hover, .button:focus {
+    background-color: #2e90ff;
+    color: white; }
