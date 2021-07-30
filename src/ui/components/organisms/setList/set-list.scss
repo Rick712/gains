@@ -3,7 +3,6 @@
 .set-table {
     width: 100%;
     display: grid;
-    margin-bottom: 2rem;
 
     .row {
         display: grid;
@@ -33,6 +32,8 @@
 
         &.change {
             span {
+                cursor: pointer;
+
                 &:nth-of-type(1) {
                     color: red;
                 }

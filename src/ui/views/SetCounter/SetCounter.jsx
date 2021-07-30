@@ -11,23 +11,15 @@ function SetCounter() {
     const { workout, setWorkout } = useContext(WorkoutContext);
 
     const handleAddSet = () => {
-        setWorkout((prev: iWorkout) => ({ ...prev, name: 'test' }));
-
-        // const newObj = workout;
-
-        // newObj.sets.push({
-        //     index: newObj.sets.length,
-        //     weight: 0,
-        //     count: 0,
-        //     changeAble: true,
-        // });
-        // console.log(newObj);
-        // setWorkout(newObj);
+        const newSet = workout.sets;
+        newSet[newSet.length] = {
+            index: newSet[newSet.length],
+            weight: 0,
+            count: 0,
+            changeAble: true,
+        };
+        setWorkout((prev) => ({ ...prev, sets: newSet }));
     };
-
-    //setUserData((prev) => ({ ...prev, choseAProduct: true }));
-
-    console.log(workout);
 
     return (
         <main className="set-counter container">

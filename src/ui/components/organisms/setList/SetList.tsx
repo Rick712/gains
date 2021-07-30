@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 
+import { iWorkout } from '../../../../core/models/WorkoutContext';
+
 import { WorkoutContext } from '../../../context/workoutContext';
 import { SetListRow } from '../..';
 
@@ -9,30 +11,32 @@ const SetList: React.FC = () => {
     const { workout, setWorkout } = useContext(WorkoutContext);
     const [sets, setSets] = useState(workout.sets);
 
-    const handleDeleteSet = (data: any) => {
-        const newObj = workout;
-        const newSet = newObj.sets.filter((set) => {
-            console.log(set.index, data.index);
-            return set.index !== data.index;
-        });
+    const handleDeleteSet = useCallback(
+        (data: any) => {
+            const newSet = workout.sets.filter((set) => {
+                console.log(set.index, data.index);
+                return set.index !== data.index;
+            });
 
-        const applyNewIndex = newSet.map((set, i) => {
-            return {
-                index: i,
-                count: set.count,
-                weight: set.weight,
-                changeAble: false,
-            };
-        });
+            const newObj = newSet.map((set, i) => {
+                return {
+                    index: i,
+                    count: set.count,
+                    weight: set.weight,
+                    changeAble: false,
+                };
+            });
 
-        setSets(applyNewIndex);
-    };
+            setWorkout((prev: iWorkout) => ({ ...prev, sets: newObj }));
+        },
+        [setWorkout, workout]
+    );
 
     const handleUpdateChange = useCallback(
         (index: number) => {
-            const newObj = workout;
-            newObj.sets[index].changeAble = true;
-            setWorkout(newObj);
+            const newObj = workout.sets;
+            newObj[index].changeAble = true;
+            setWorkout((prev: iWorkout) => ({ ...prev, sets: newObj }));
         },
         [workout, setWorkout]
     );
@@ -40,17 +44,21 @@ const SetList: React.FC = () => {
     const handleUpdateValue = useCallback(
         (count: string, weight: string, index: number) => {
             if (count === null || weight === null) return;
-            let newObj = workout;
-            newObj.sets[index] = {
+            let newObj = workout.sets;
+            newObj[index] = {
                 index: index,
                 weight: parseInt(weight, 10),
                 count: parseInt(count, 10),
                 changeAble: false,
             };
-            setWorkout(newObj);
+            setWorkout((prev: iWorkout) => ({ ...prev, sets: newObj }));
         },
         [workout, setWorkout]
     );
+
+    useEffect(() => {
+        setSets(workout.sets);
+    }, [workout]);
 
     return (
         <div className="set-table">

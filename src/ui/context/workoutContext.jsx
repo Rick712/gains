@@ -7,12 +7,7 @@ import React, {
 } from 'react';
 import { iWorkout } from '../../core/models/WorkoutContext';
 
-interface iContext {
-    setWorkout: Dispatch<SetStateAction<iWorkout>>;
-    workout: iWorkout;
-}
-
-const workoutInput: iWorkout = {
+const workoutInput = {
     name: '',
     user: '',
     type: '',
@@ -47,15 +42,13 @@ const workoutInput: iWorkout = {
     ],
 };
 
-const WorkoutContext = createContext<iContext>({
-    setWorkout: (dataFromUser: iWorkout) => dataFromUser,
+const WorkoutContext = createContext({
+    setWorkout: (dataFromUser) => dataFromUser,
     workout: workoutInput,
 });
 
-const WorkoutContextProvider: React.FC<PropsWithChildren<unknown>> = ({
-    children,
-}) => {
-    const [workout, setWorkout] = useState<iWorkout>(workoutInput);
+const WorkoutContextProvider = ({ children }) => {
+    const [workout, setWorkout] = useState(workoutInput);
 
     return (
         <WorkoutContext.Provider

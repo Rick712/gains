@@ -5,12 +5,14 @@ function SetListRow({ data, index, deleteSet, updateValue, updateChange }) {
     const [weight, setWeight] = useState(data.weight);
 
     const handleCountChange = (input) => {
-        setCount(input.target.value);
+        setCount(parseInt(input.target.value));
     };
 
     const handleWeightChange = (input) => {
-        setWeight(input.target.value);
+        setWeight(parseInt(input.target.value));
     };
+
+    console.log(count, weight);
 
     if (data.changeAble === true) {
         return (
@@ -20,13 +22,16 @@ function SetListRow({ data, index, deleteSet, updateValue, updateChange }) {
                     onChange={handleCountChange}
                     className="cell"
                     type="text"
-                    value={count}
+                    value={count ? count : ''}
+                    placeholder="aantal keer"
+                    autoFocus
                 />
                 <input
                     onChange={handleWeightChange}
                     className="cell"
                     type="text"
-                    value={weight}
+                    value={weight ? weight : ''}
+                    placeholder="gewicht in kilo's"
                 ></input>
                 <div className="cell change">
                     <span onClick={() => updateValue(count, weight, index)}>
