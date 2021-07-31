@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from '../../components';
 
-function Settings() {
+export default function Settings() {
     return (
         <div>
             <p>Settings</p>
@@ -10,5 +10,3 @@ function Settings() {
         </div>
     );
 }
-
-export default Settings;

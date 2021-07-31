@@ -1,3 +1,4 @@
+export { default as Login } from './Login';
 export { default as SelectMuscleGroup } from './SelectMuscleGroup';
 export { default as SelectWorkout } from './SelectWorkout';
 export { default as SetCounter } from './SetCounter';

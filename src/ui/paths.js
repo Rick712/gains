@@ -3,4 +3,5 @@ export const paths = {
     selectWorkout: '/workout/select',
     addSet: '/workout/new',
     settings: '/settings',
+    login: '/login',
 };

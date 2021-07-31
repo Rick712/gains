@@ -1,10 +1,25 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect, useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import { UserContext } from '../../context/profileContext';
+
 import { routes } from '../../routes';
+import { paths } from '../../paths';
 
 import './app-view.css';
 
 function AppView() {
+    const history = useHistory();
+    const { user } = useContext(UserContext);
+
+    const localValidationToken = localStorage.getItem('validation_token');
+
+    if (!localValidationToken) {
+        console.log('jallah');
+        history.push(paths.login);
+    }
+
     return (
         <Suspense>
             <Switch>

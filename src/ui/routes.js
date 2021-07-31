@@ -5,6 +5,7 @@ import {
     Settings,
     NotFound,
     SetCounter,
+    Login,
 } from './views';
 
 export const routes = [
@@ -26,6 +27,11 @@ export const routes = [
     {
         path: paths.settings,
         component: Settings,
+        exact: false,
+    },
+    {
+        path: paths.login,
+        component: Login,
         exact: false,
     },
     {

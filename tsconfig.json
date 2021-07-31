@@ -18,5 +18,10 @@
         "noFallthroughCasesInSwitch": true,
         "isolatedModules": true
     },
-    "include": ["**/*.ts", "**/*.tsx", "src/ui/context/workoutContext.jsx"]
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "src/ui/context/workoutContext.jsx",
+        "src/ui/views/Login/Login.tsx"
+    ]
 }
