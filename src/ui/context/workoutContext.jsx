@@ -1,43 +1,15 @@
-import React, {
-    useState,
-    PropsWithChildren,
-    createContext,
-    Dispatch,
-    SetStateAction,
-} from 'react';
-import { iWorkout } from '../../core/models/WorkoutContext';
+import React, { useState, createContext } from 'react';
 
 const workoutInput = {
-    name: '',
     user: '',
-    type: '',
-    muscleGroup: 0,
-    workout: 0,
+    workoutType: {},
     weightType: '',
     sets: [
         {
             index: 0,
-            weight: 10,
-            count: 10,
-            changeAble: false,
-        },
-        {
-            index: 1,
-            weight: 15,
-            count: 10,
-            changeAble: false,
-        },
-        {
-            index: 2,
-            weight: 20,
-            count: 10,
-            changeAble: false,
-        },
-        {
-            index: 3,
-            weight: 25,
-            count: 10,
-            changeAble: false,
+            count: 0,
+            weight: 0,
+            changeAble: true,
         },
     ],
 };

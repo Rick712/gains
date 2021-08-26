@@ -32,7 +32,7 @@ export default function Login() {
         if (user.token) {
             history.push(paths.home);
         }
-    }, [user]);
+    }, [user, history]);
 
     return (
         <div>

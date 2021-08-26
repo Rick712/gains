@@ -1,0 +1,14 @@
+@import '../../../styling/helpers.scss';
+
+.header {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 1rem 2rem;
+
+    a {
+        font: $font_body;
+        color: $gains_blue_1;
+        text-decoration: none;
+        padding: 1rem 0;
+    }
+}

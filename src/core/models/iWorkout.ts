@@ -3,7 +3,7 @@ export interface iWorkout {
     user: string;
     type: string;
     muscleGroup: number;
-    workout: number;
+    workoutType: any;
     weightType: string;
     sets: iSet[];
 }

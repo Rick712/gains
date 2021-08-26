@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 
-import { iWorkout } from '../../../../core/models/WorkoutContext';
+import { iWorkout } from '../../../../core/models/iWorkout';
 
 import { WorkoutContext } from '../../../context/workoutContext';
 import { SetListRow } from '../..';
@@ -13,21 +13,20 @@ const SetList: React.FC = () => {
 
     const handleDeleteSet = useCallback(
         (data: any) => {
-            const newSet = workout.sets.filter((set) => {
-                console.log(set.index, data.index);
-                return set.index !== data.index;
-            });
-
-            const newObj = newSet.map((set, i) => {
-                return {
-                    index: i,
-                    count: set.count,
-                    weight: set.weight,
-                    changeAble: false,
-                };
-            });
-
-            setWorkout((prev: iWorkout) => ({ ...prev, sets: newObj }));
+            if (workout.sets.length && data.index) {
+                const newSet = workout.sets.filter((set) => {
+                    return set.index !== data.index;
+                });
+                const newObj = newSet.map((set, i) => {
+                    return {
+                        index: i,
+                        count: set.count,
+                        weight: set.weight,
+                        changeAble: false,
+                    };
+                });
+                setWorkout((prev: iWorkout) => ({ ...prev, sets: newObj }));
+            }
         },
         [setWorkout, workout]
     );

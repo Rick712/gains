@@ -5,7 +5,6 @@ import { MUSCLEGROUPSURL } from '../../variables';
 import { transformMuscleGroup } from './../../core/transformers/transform-muscle-group';
 
 export const useMuscleGroups = () => {
-    // De context
     const [muscleGroups, setMuscleGroups] = useState(null);
     const [muscleGroupsLoading, setMuscleGroupsLoading] = useState(false);
     const [muscleGroupsErrors, setMuscleGroupsErrors] = useState(null);
@@ -25,6 +24,9 @@ export const useMuscleGroups = () => {
                         return transformMuscleGroup(res);
                     })
                 );
+            })
+            .then(() => {
+                console.log(muscleGroups);
             })
             .catch((error) => {
                 setMuscleGroupsErrors(error);

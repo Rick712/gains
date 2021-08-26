@@ -7,7 +7,6 @@ import { transformWorkout } from './../../core/transformers/transform-workout';
 export const useWorkouts = (id) => {
     // De context
     const [workouts, setWorkouts] = useState(null);
-    const [tempWorkouts, setTempWorkouts] = useState(null);
     const [workoutsLoading, setWorkoutsLoading] = useState(false);
     const [workoutsErrors, setWorkoutsErrors] = useState(null);
 
@@ -23,13 +22,11 @@ export const useWorkouts = (id) => {
         axios
             .get(WORKOUTSURL, params)
             .then((response) => {
-                console.log(response);
                 response.data.forEach((res) => {
                     arr.push(transformWorkout(res));
                 });
             })
             .then(() => {
-                console.log(arr);
                 if (!id) {
                     setWorkouts(arr);
                 } else {

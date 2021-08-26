@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect, useContext } from 'react';
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
@@ -11,7 +11,6 @@ import './app-view.css';
 
 function AppView() {
     const history = useHistory();
-    const { user } = useContext(UserContext);
 
     const localValidationToken = localStorage.getItem('validation_token');
 

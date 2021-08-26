@@ -1,9 +1,9 @@
 import React, { useState, createContext } from 'react';
 
 const userData = {
-    name: '',
-    email: '',
-    token: '',
+    name: localStorage.getItem('username'),
+    email: localStorage.getItem('password'),
+    token: localStorage.getItem('validation_token'),
 };
 
 const UserContext = createContext({

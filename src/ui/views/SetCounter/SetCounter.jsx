@@ -1,14 +1,15 @@
-import React, { useState, useContext, useCallback, useEffect } from 'react';
+import React, { useContext } from 'react';
 
-import { iWorkout } from '../../../core/models/WorkoutContext';
+import { useCreateWorkout } from '../../hooks/use-create-workout';
 
 import { WorkoutContext } from '../../context/workoutContext';
-import { SetList, Button } from '../../components';
+import { SetList, Button, Header } from '../../components';
 
 import './set-counter.css';
 
 function SetCounter() {
     const { workout, setWorkout } = useContext(WorkoutContext);
+    const { createWorkout, newWorkoutLoading, newWorkout } = useCreateWorkout();
 
     const handleAddSet = () => {
         const newSet = workout.sets;
@@ -21,15 +22,46 @@ function SetCounter() {
         setWorkout((prev) => ({ ...prev, sets: newSet }));
     };
 
-    return (
-        <main className="set-counter container">
-            <h1>Voeg een training toe</h1>
-            {workout.sets && <SetList />}
+    const makeWorkout = () => {
+        createWorkout();
+    };
 
-            <Button className="add-set">
-                <div onClick={() => handleAddSet()}>Voeg een set toe</div>
-            </Button>
-        </main>
+    return (
+        <div>
+            <Header />
+            <main className="set-counter container">
+                {!newWorkout && !newWorkoutLoading && (
+                    <>
+                        <h1>Voeg een training toe</h1>
+                        {workout.sets && <SetList />}
+
+                        <Button className="add-set">
+                            <div onClick={() => handleAddSet()}>
+                                Voeg een set toe
+                            </div>
+                        </Button>
+
+                        <Button className="add-set">
+                            <div onClick={makeWorkout}>Maak workout</div>
+                        </Button>
+                    </>
+                )}
+                {newWorkout && (
+                    <>
+                        <h1>Workout opgeslagen!</h1>
+                        <p>{newWorkout.date}</p>
+                        <p>{newWorkout.acf.workout_type.post_title}</p>
+                        <div>
+                            {newWorkout.acf.sets.map((set) => (
+                                <div>
+                                    {set.count}x {set.weight}kg
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </main>
+        </div>
     );
 }
 

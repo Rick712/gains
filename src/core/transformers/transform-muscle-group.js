@@ -2,6 +2,6 @@ export function transformMuscleGroup(group) {
     return {
         id: group.id,
         name: group.title.rendered,
-        image: group.acf.spiergroep.image,
+        image: group.acf.image,
     };
 }

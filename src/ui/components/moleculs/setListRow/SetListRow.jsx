@@ -12,8 +12,6 @@ function SetListRow({ data, index, deleteSet, updateValue, updateChange }) {
         setWeight(parseInt(input.target.value));
     };
 
-    console.log(count, weight);
-
     if (data.changeAble === true) {
         return (
             <div className="row">
