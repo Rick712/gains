@@ -15,7 +15,6 @@ function AppView() {
     const localValidationToken = localStorage.getItem('validation_token');
 
     if (!localValidationToken) {
-        console.log('jallah');
         history.push(paths.login);
     }
 
