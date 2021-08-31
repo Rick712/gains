@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useCallback, useContext } from 'react';
 
+import { errors } from '../../constants';
 import { LOGINAPI } from '../../variables';
 
 import { UserContext } from '../context/profileContext';
@@ -31,7 +32,11 @@ export const useProfile = (username, password) => {
                 localStorage.setItem('password', password);
             })
             .catch((error) => {
-                setLoginErrors(error);
+                if (error.response.status === 403) {
+                    setLoginErrors(errors.login[403]);
+                } else {
+                    setLoginErrors(error.response);
+                }
             });
         setLoginLoading(false);
     });

@@ -9,7 +9,7 @@ import { Button } from '../../components';
 
 export default function Login() {
     const history = useHistory();
-    const { validateLogin } = useProfile();
+    const { validateLogin, loginErrors } = useProfile();
     const { user } = useContext(UserContext);
     const localValidationToken = localStorage.getItem('validation_token');
 
@@ -35,20 +35,26 @@ export default function Login() {
     }, [user, history]);
 
     return (
-        <div>
-            <input
-                value={username}
-                type="text"
-                onChange={(e) => handleInput(e.target.value, setUsername)}
-            />
-            <input
-                value={password}
-                type="text"
-                onChange={(e) => handleInput(e.target.value, setPassword)}
-            />
-            <Button className="send">
-                <div onClick={handleClick}>Stuur</div>
-            </Button>
+        <div className={`login container ${loginErrors && 'error'}`}>
+            <div className="content">
+                <h1>Login bij Gains</h1>
+                <input
+                    value={username}
+                    type="text"
+                    onChange={(e) => handleInput(e.target.value, setUsername)}
+                />
+                <input
+                    value={password}
+                    type="password"
+                    onChange={(e) => handleInput(e.target.value, setPassword)}
+                />
+
+                {loginErrors && <p>{loginErrors}</p>}
+
+                <Button className="send">
+                    <div onClick={handleClick}>Stuur</div>
+                </Button>
+            </div>
         </div>
     );
 }
