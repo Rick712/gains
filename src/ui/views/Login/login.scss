@@ -1,0 +1,38 @@
+@import '../../styling/helpers.scss';
+
+.login {
+    .content {
+        max-width: 34rem;
+        padding: 3rem;
+        border-radius: 0.4rem;
+        margin: 0 auto;
+        margin-top: 25vh;
+        background-color: white;
+        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+
+    input {
+        border: solid $gains_blue_3 0.1rem;
+        border-radius: 0.4rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    p {
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+    }
+
+    &.error {
+        input {
+            border: solid red 0.1rem;
+        }
+    }
+}

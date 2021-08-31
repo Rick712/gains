@@ -7,6 +7,8 @@ import { paths } from '../../paths';
 
 import { Button } from '../../components';
 
+import './login.css';
+
 export default function Login() {
     const history = useHistory();
     const { validateLogin, loginErrors } = useProfile();
