@@ -2,8 +2,6 @@ import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-import { UserContext } from '../../context/profileContext';
-
 import { routes } from '../../routes';
 import { paths } from '../../paths';
 

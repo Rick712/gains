@@ -41,7 +41,7 @@ function SetCounter() {
                             </div>
                         </Button>
 
-                        <Button className="add-set">
+                        <Button className="add-set save-set">
                             <div onClick={makeWorkout}>Maak workout</div>
                         </Button>
                     </>
@@ -50,7 +50,10 @@ function SetCounter() {
                     <>
                         <h1>Workout opgeslagen!</h1>
                         <p>{newWorkout.date}</p>
-                        <p>{newWorkout.acf.workout_type.post_title}</p>
+                        <p>
+                            {newWorkout.acf.workout_type?.post_title ??
+                                'Workout'}
+                        </p>
                         <div>
                             {newWorkout.acf.sets.map((set) => (
                                 <div>

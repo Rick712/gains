@@ -15,6 +15,8 @@ export default function Login() {
     const { user } = useContext(UserContext);
     const localValidationToken = localStorage.getItem('validation_token');
 
+    const [loading, setLoading] = useState(false);
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,6 +26,7 @@ export default function Login() {
 
     const handleClick = () => {
         validateLogin(username, password);
+        setLoading(true);
     };
 
     if (localValidationToken) {
@@ -35,6 +38,10 @@ export default function Login() {
             history.push(paths.home);
         }
     }, [user, history]);
+
+    useEffect(() => {
+        if (loginErrors) setLoading(false);
+    }, [loginErrors]);
 
     return (
         <div className={`login container ${loginErrors && 'error'}`}>
@@ -54,7 +61,9 @@ export default function Login() {
                 {loginErrors && <p>{loginErrors}</p>}
 
                 <Button className="send">
-                    <div onClick={handleClick}>Stuur</div>
+                    <div onClick={handleClick}>
+                        {loading ? '...' : 'Log in'}
+                    </div>
                 </Button>
             </div>
         </div>
